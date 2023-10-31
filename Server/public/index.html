@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Sensor</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <div id="sensor-container"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        socket.on('sensorData', (data) => {
+            const sensorContainer = document.createElement('div');
+            sensorContainer.className = 'sensor-container';
+
+            sensorContainer.innerHTML = `
+                <span class="sensor">${data.sensor}</span><br>
+                State: <span class="${data.state.toLowerCase()}">${data.state}</span><br>
+                Value: ${data.value}
+            `;
+
+            // Obtém o elemento
+            const container = document.getElementById('sensor-container');
+            // Remove todos os elementos
+            container.innerHTML = '';
+            // Adiciona ao container
+            container.appendChild(sensorContainer);
+        });
+    </script>
+</body>
+</html>

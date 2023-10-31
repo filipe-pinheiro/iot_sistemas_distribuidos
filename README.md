@@ -7,10 +7,13 @@
 
 ### Como funciona
 
-ESP32 envia dados para o Servidor:A ESP32 está configurada para enviar dados (por exemplo, leituras do sensor) para o servidor via uma solicitação HTTP ou outra forma de comunicação.
+1. #ESP32 envia dados para o Servidor:
+A ESP32 está configurada para enviar dados (por exemplo, leituras do sensor) para o servidor via uma solicitação HTTP.
 
-Servidor Recebe Dados usando Express.js:O servidor Express.js atua como um middleware que recebe os dados da ESP32 e os processa.
+2. #Servidor Recebe Dados usando Express.js:
+O servidor Express.js atua como um middleware que recebe os dados da ESP32 e os processa.
 
-Transmissão dos Dados para o Frontend usando Socket.io:O servidor utiliza o Socket.io para transmitir os dados recebidos em tempo real para o frontend. Os clientes conectados ao servidor através de Socket.io receberão automaticamente esses dados e poderão atualizar a interface do usuário em conformidade.
+3. #Transmissão dos Dados para o Frontend usando Socket.io:
+O servidor utiliza o Socket.io para transmitir os dados recebidos em tempo real para o frontend. Os clientes conectados ao servidor através de Socket.io receberão automaticamente esses dados e poderão atualizar a interface do usuário em conformidade.
 
 

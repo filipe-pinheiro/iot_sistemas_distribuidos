@@ -1,0 +1,29 @@
+{{#each erros}}
+  <div class="alert alert-danger">{{texto}}</div>
+{{else}}
+{{/each}}
+<div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        Login
+                    </div>
+                    <div class="card-body">
+                        <form action="/dashboard" method="post">
+                            <div class="form-group mt-4">
+                                <label for="nome">Usuário:</label>
+                                <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite seu usuário" required>
+                            </div>
+                            <div class="form-group mt-4">
+                                <label for="senha">Senha:</label>
+                                <input type="password" class="form-control" name="senha" id="nome" placeholder="Digite sua senha" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block mt-4">Entrar</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

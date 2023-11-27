@@ -1,15 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const handlebars = require('express-handlebars');
-//const Sequelize = require ('sequelize')
 const http = require('http');
 const socketIo = require('socket.io');
 const path = require('path');
 const app = express();
 const server = http.createServer(app);
 const io = socketIo(server);
-const { sequelize, User } = require("./db"); // Inclua o modelo User
-
+const { sequelize, User } = require("./db");
 const port = 3000;
 const router = express.Router();
 
@@ -35,6 +33,10 @@ app.use((req, res, next) => {
 //      res.sendFile(__dirname + "/public/login.html");
 //  })
 
+app.get('/',(req, res)=>{
+    res.send("Pagina Inicial");
+})
+
 app.get('/login',(req, res)=>{
     res.render("login");
 })
@@ -42,8 +44,6 @@ app.get('/login',(req, res)=>{
 app.get('/dashboard',(req, res)=>{
     res.render("dashboard");
 })
-
-
 
 app.post('/login', async (req, res) => {
      const { email, senha } = req.body;
@@ -74,7 +74,6 @@ app.post('/sensor-light', (req, res) => {
     io.emit('sensorData', sensorData);
     res.json(sensorData);
 });
-
 
 
 app.post('/sensor-temperatura', (req, res) => {

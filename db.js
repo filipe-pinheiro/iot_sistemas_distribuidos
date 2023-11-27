@@ -39,11 +39,11 @@ const sequelize = new Sequelize(dbName, dbUser, dbPassword,{
    }
  });
 
- sequelize.sync({
-   force:true
- })
+//  sequelize.sync({
+//    force:true
+//  })
 
 
 
 
-module.exports = {sequelize};
+module.exports = {sequelize,User};
